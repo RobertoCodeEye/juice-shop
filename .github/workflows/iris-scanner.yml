@@ -31,6 +31,7 @@ jobs:
 
       - name: Run Scan 
         run: |
+          chmod +x /home/runner/sast/js/node-runtime/node
           releaseName=${{ inputs.release_name }}
           currentDirectory=$PWD
           ./iris-scanner-cli -s $currentDirectory -r $releaseName -verbose
