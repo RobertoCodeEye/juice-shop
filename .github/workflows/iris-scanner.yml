@@ -43,7 +43,7 @@ jobs:
       - name: Run Scan 
         shell: powershell
         run: |
-          npm install --package-lock-only
+          npm install --package-lock-only --ignore-scripts
           $releaseName="${{ inputs.release_name }}"
           $currentDirectory = (Get-Location).Path
-          .\iris-scanner-cli.exe -s "$currentDirectory" -r "$releaseName" -verbose
+          .\iris-scanner-cli.exe -s "$currentDirectory" -r "$releaseName" -m "sca" -verbose
