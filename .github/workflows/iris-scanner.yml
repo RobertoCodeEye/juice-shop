@@ -28,10 +28,14 @@ jobs:
         run: | 
           curl -L -o iris-scanner-cli https://iris.codeeye.ai/assets/onprem/v2/iris-scanner-cli_1_3_10
           chmod +x iris-scanner-cli
+          
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
       - name: Run Scan 
         run: |
-          chmod +x /home/runner/sast/js/node-runtime/node
           releaseName=${{ inputs.release_name }}
           currentDirectory=$PWD
           ./iris-scanner-cli -s $currentDirectory -r $releaseName -verbose
