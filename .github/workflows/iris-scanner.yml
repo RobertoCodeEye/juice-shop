@@ -45,5 +45,3 @@ jobs:
           releaseName=${{ inputs.release_name }}
           currentDirectory=$PWD
           ./iris-scanner-cli -s $currentDirectory -r $releaseName -verbose
-        env:
-          PATH: ${{ env.PATH }}
