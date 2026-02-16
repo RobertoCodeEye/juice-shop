@@ -26,7 +26,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'  # o '20.x' para la última versión 20.x
-          cache: 'npm'
       
      # - name: Setup .NET Core 9
       #  uses: actions/setup-dotnet@v3
