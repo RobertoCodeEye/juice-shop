@@ -23,19 +23,27 @@ jobs:
                         '{projectId: $projectId, jwt_auth: $jwt}')
 
           echo $jsonContent > iris.settings.json
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Verify Node.js
+        run: |
+          node -v
+          npm -v
+          which node
       
       - name: Download IRIS Scanner CLI 
         run: | 
           curl -L -o iris-scanner-cli https://iris.codeeye.ai/assets/onprem/v2/iris-scanner-cli_1_3_10
           chmod +x iris-scanner-cli
-          
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
 
       - name: Run Scan 
         run: |
           releaseName=${{ inputs.release_name }}
           currentDirectory=$PWD
           ./iris-scanner-cli -s $currentDirectory -r $releaseName -verbose
+        env:
+          PATH: ${{ env.PATH }}
