@@ -38,7 +38,7 @@ jobs:
           
       - name: Download IRIS Scanner CLI 
         shell: powershell
-        run: Invoke-WebRequest -Uri "https://iris.codeeye.ai/assets/onprem/win/v1/net/iris-scanner-cli_1_3_9_2.exe" -OutFile "iris-scanner-cli.exe"
+        run: Invoke-WebRequest -Uri "https://iris.codeeye.ai/assets/onprem/win/v1/iris-scanner-cli_1_3_9_2.exe" -OutFile "iris-scanner-cli.exe"
 
       - name: Run Scan 
         shell: powershell
